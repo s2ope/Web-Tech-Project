@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List Examples</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start; /* Align items to the start of the line */
+    }
+
+    .list-wrapper {
+      width: 30%; /* Adjust as needed to fit 3 in a row */
+      margin-bottom: 20px;
+      box-sizing: border-box; /* Include padding/border in width */
+      padding: 0 10px; /* Add some horizontal padding */
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin-bottom: 10px;
+    }
+
+    ol {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>List Examples</h2>
+
+  <div class="container">
+    <div class="list-wrapper">
+      <h2>Styled Disc</h2>
+      <ul>
+        <li>Friday</li>
+        <li>Monday</li>
+        <li>Saturday</li>
+        <li>Wednesday</li>
+      </ul>
+    </div>
+
+    <div class="list-wrapper">
+      <h2>Style Square</h2>
+      <ul>
+        <li>Friday</li>
+        <li>Monday</li>
+        <li>Saturday</li>
+        <li>Wednesday</li>
+      </ul>
+    </div>
+
+    <div class="list-wrapper">
+      <h2>Style Circle</h2>
+      <ul style="list-style-type: square;">
+        <ul>
+            <li>Friday</li>
+            <li>Monday</li>
+            <li>Saturday</li>
+            <li>Wednesday</li>
+          </ul>
+      </ul>
+    </div>
+
+    <div class="list-wrapper">
+      <h2>Style Decimal</h2>
+      <ol>
+        <li>Friday</li>
+        <li>Monday</li>
+        <li>Saturday</li>
+        <li>Wednesday</li>
+      </ol>
+    </div>
+
+    <div class="list-wrapper">
+      <h2>Style Decimal Zero</h2>
+      <ol>
+        <li>Friday</li>
+        <li>Monday</li>
+        <li>Saturday</li>
+        <li>Wednesday</li>
+      </ol>
+    </div>
+
+    <div class="list-wrapper">
+      <h2>Style Lower Alpha</h2>
+      <ol type="a">
+        <li>Friday</li>
+        <li>Monday</li>
+        <li>Saturday</li>
+        <li>Wednesday</li>
+      </ol>
+    </div>
+
+  </div>
+
+</body>
+</html>
