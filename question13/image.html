@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+        
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 15px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover img {
+            opacity: 0.8;
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .filter-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .filter-button:hover {
+            background-color: #45a049;
+        }
+        
+        .filter-button.active {
+            background-color: #333;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+    
+    <div class="gallery-container">
+        <div class="filter-buttons">
+            <button class="filter-button active" data-filter="all">All</button>
+            <button class="filter-button" data-filter="nature">Nature</button>
+            <button class="filter-button" data-filter="city">City</button>
+            <button class="filter-button" data-filter="animals">Animals</button>
+        </div>
+        
+        <div class="gallery">
+            <div class="gallery-item" data-category="nature">
+                <img src="https://via.placeholder.com/300x200?text=Mountain" alt="Mountain View">
+                <div class="gallery-caption">Mountain View</div>
+            </div>
+            
+            <div class="gallery-item" data-category="city">
+                <img src="https://via.placeholder.com/300x200?text=City" alt="City Skyline">
+                <div class="gallery-caption">City Skyline</div>
+            </div>
+            
+            <div class="gallery-item" data-category="nature">
+                <img src="https://via.placeholder.com/300x200?text=Beach" alt="Beach Sunset">
+                <div class="gallery-caption">Beach Sunset</div>
+            </div>
+            
+            <div class="gallery-item" data-category="animals">
+                <img src="https://via.placeholder.com/300x200?text=Lion" alt="Lion">
+                <div class="gallery-caption">Lion</div>
+            </div>
+            
+            <div class="gallery-item" data-category="city">
+                <img src="https://via.placeholder.com/300x200?text=Streets" alt="City Streets">
+                <div class="gallery-caption">City Streets</div>
+            </div>
+            
+            <div class="gallery-item" data-category="animals">
+                <img src="https://via.placeholder.com/300x200?text=Tiger" alt="Tiger">
+                <div class="gallery-caption">Tiger</div>
+            </div>
+            
+            <div class="gallery-item" data-category="nature">
+                <img src="https://via.placeholder.com/300x200?text=Forest" alt="Forest">
+                <div class="gallery-caption">Forest</div>
+            </div>
+            
+            <div class="gallery-item" data-category="city">
+                <img src="https://via.placeholder.com/300x200?text=Bridge" alt="Bridge">
+                <div class="gallery-caption">Bridge</div>
+            </div>
+            
+            <div class="gallery-item" data-category="animals">
+                <img src="https://via.placeholder.com/300x200?text=Elephant" alt="Elephant">
+                <div class="gallery-caption">Elephant</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Toggle active class
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter gallery items
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

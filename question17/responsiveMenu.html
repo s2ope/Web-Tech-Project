@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            padding: 15px 0; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .hamburger {
+            display: none;
+            color: white;
+            padding: 16px;
+            cursor: pointer;
+
+            font-size: 20px;
+        }
+        .menu {
+            display: flex; 
+
+        }
+        /* Responsive Styles */
+        @media screen and (max-width: 600px) {
+            .menu {
+                display: none; 
+                flex-direction: column; 
+                width: 100%; 
+                position: absolute; 
+                top: 60px; 
+                left: 0;
+                background-color: #333;
+                z-index: 1;
+            }
+
+            .menu a {
+                text-align: left;
+                padding: 14px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+            .menu.active {
+                display: flex; 
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="#" class="logo">Mystery Code</a>
+
+    <div class="menu">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Service</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact Us</a>
+    </div>
+    <div class = "hamburger">☰</div>
+
+</div>
+<script>
+ const hamburger = document.querySelector(".hamburger");
+const menu = document.querySelector(".menu");
+
+hamburger.addEventListener("click", () => {
+    menu.classList.toggle("active");
+})
+</script>
+
+</body>
+</html>

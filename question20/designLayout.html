@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Layout 2</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr 80px;
+    grid-template-areas:
+        "header"
+        "content"
+        "footer";
+}
+
+header {
+    grid-area: header;
+    background-color: lightgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+main {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+}
+
+.sidebar {
+    background-color: lightcoral;
+}
+
+.content {
+    background-color: lightblue;
+}
+
+.right {
+    background-color: mediumpurple;
+}
+
+footer {
+    grid-area: footer;
+    background-color: lightgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+/* Smaller screens (mobile) */
+@media (max-width: 600px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto; /* Adjust rows as needed */
+    }
+
+    .sidebar, .content, .right {
+        margin-bottom: 10px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <header>Header</header>
+    <main>
+        <div class="sidebar">Left side</div>
+        <div class="content">Content</div>
+                <div class = "right">Right</div>
+    </main>
+    <footer>Footer</footer>
+</div>
+
+</body>
+</html>
